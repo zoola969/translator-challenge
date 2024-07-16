@@ -1,0 +1,70 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 61.0"]
+
+[project]
+dependencies = [
+    "fastapi-slim~=0.111.0",
+    "google-cloud-translate~=3.15",
+    "httptools~=0.6.0",
+    "motor~=3.5",
+    "pydantic-settings~=2.3",
+    "pydantic~=2.8",
+    "uvicorn~=0.30.0",
+    "uvloop~=0.19.0",
+]
+name = "translator-challenge"
+version = "0.0.1"
+
+[project.optional-dependencies]
+dev = [
+    "mypy~=1.10",
+    "pip-tools~=7.4",
+    "pytest-asyncio==0.21.2",
+    "pytest~=8.2",
+    "types-requests",
+    "watchfiles~=0.21.0",
+]
+
+[tool.black]
+color = true
+line-length = 120
+target-version = ['py312']
+
+[tool.isort]
+float_to_top = true
+include_trailing_comma = true
+line_length = 120
+multi_line_output = 3
+use_parentheses = true
+
+[tool.mypy]
+plugins = "pydantic.mypy"
+strict = true
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = "google.cloud.*"
+
+[tool.ruff]
+line-length = 120
+output-format = "full"
+show-fixes = true
+target-version = "py312"
+
+[tool.tomlsort]
+all = true
+ignore_case = true
+in_place = true
+no_block_comments = false
+no_comments = false
+no_footer_comments = false
+no_header_comments = false
+no_inline_comments = false
+no_sort_tables = false
+sort_inline_arrays = true
+sort_inline_tables = true
+sort_table_keys = true
+spaces_before_inline_comment = 2
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true
