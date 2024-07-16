@@ -1,4 +1,5 @@
-to enable requests to google api you need to generate an API key https://cloud.google.com/docs/authentication/api-keys
+## Note  
+The Google API (both v2 and v3) does not provide definitions and synonyms in its responses. These features are only available through the web version of Google Translate, which uses obfuscated requests and responses. Writing a parser for these obfuscated requests was outside the scope of this task. As a result, I currently populate definitions and synonyms with the same words.
 
 ## Known problems and solutions
 The current implementation has several areas that require improvement to meet production standards. Here are the specific issues and proposed solutions:
@@ -21,6 +22,8 @@ The current implementation has several areas that require improvement to meet pr
 
 
 ### How to run
+to enable requests to google api you need to generate an API key https://cloud.google.com/docs/authentication/api-keys
+
 1. create .env file in the root directory with the following content:
 ```dotenv
 API_KEY=$your APIKey to google translate api
